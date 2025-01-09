@@ -268,7 +268,20 @@ def delaccount():
 @app.route("/viewaccount" , methods=["GET", "POST"])
 def viewaccount():
     if 'user' not in session:
-        return redirect(url_for('login'))        
+        return redirect(url_for('login')) 
+    # After ensuring the user is logged in
+    if 'user' in session:
+        # Get the cust_id for the logged-in user
+        user_id = session['user']  # This should match the ID from the users table
+        cust_query = text("SELECT cust_id FROM customers WHERE name = (SELECT name FROM users WHERE id = :user_id)")
+        cust_result = db.execute(cust_query, {"user_id": user_id}).fetchone()
+        
+        if cust_result:
+            cust_id = cust_result[0]  # This is Mahesh's cust_id
+        else:
+            flash("Customer not found.", 'danger')
+            return redirect(url_for('dashboard'))
+        
     if session['usert']=="executive" or session['usert']=="teller" or session['usert']=="cashier":
         if request.method == "POST":
             acc_id = request.form.get("acc_id")

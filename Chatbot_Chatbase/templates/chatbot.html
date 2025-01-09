@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Assistant Chatbot</title>
+    <style>
+        body {
+            font-family: Garamond, Arial, sans-serif;
+            background-image: url('{{ url_for("static", filename="sky.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .nav-bar img {
+            height: 100%;
+            max-width: 100%;
+        }
+
+        .nav-bar a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 0 25px;
+        }
+
+        .chatbot-container {
+            width: 50%; /* Adjust the width to be 70% of the viewport */
+            max-width: 1000px; /* Ensures a maximum width for larger screens */
+            margin: 100px auto 40px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 50%;
+        }
+
+        .chatbot-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+        }
+
+        .chatbot-container h1 {
+            font-size: 32px;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        iframe {
+            width: 100%; /* Full width of the container */
+            height: 550px; /* Set a more appropriate height */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: 90%; /* Take up more width on smaller screens */
+            }
+
+            iframe {
+                height: 600px; /* Adjust the height for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-page">
+        <div class="nav-bar">
+            <img src="{{ url_for('static', filename='logo1.png') }}">
+            <div>
+                <a href="/logout">Logout</a>
+                <a href='#'>About Us</a>
+                <a href='#'>Help</a>
+            </div>
+        </div>
+
+        <div class="chatbot-container">
+            <h1>Financial Assistant Chatbot</h1>
+            <!-- Chatbot Embed via iFrame -->
+            <iframe src="https://www.chatbase.co/chatbot-iframe/qR9zR57LZfrzXVaTOaD5z" frameborder="0"></iframe>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Vaultix. All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+
+</html>
