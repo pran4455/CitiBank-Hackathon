@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Banking Application
 ### Project Overview
 >Retail bank management is one of the most widely used application management functions in
@@ -51,3 +52,11 @@ $ Python app.py
 
 
 ```
+=======
+# CitiBank-Hackathon
+Contains code for implementation of financial application developed for Ada Lovelace Hackathon conducted by Citi Bank
+
+Video Demonstration
+
+[![Watch the video](https://drive.google.com/uc?id=14aS1tchu5qV17BkNudcNLdHpoQCwQ0FO)](https://www.canva.com/design/DAGS5sWWCY8/MlLKvJ0cTNV-RBUhXzOSoQ/watch)
+>>>>>>> 5bc91130eaa91d729731d98ea35b397a31f94b05
